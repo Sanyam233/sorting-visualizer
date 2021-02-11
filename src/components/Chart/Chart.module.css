@@ -1,0 +1,11 @@
+.Chart{
+    width: 95%;
+    display: flex;
+    border-left: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    height: 380px;
+    background-color : #121212;
+    align-items : flex-end;
+    margin-top : 50px;
+}
+

@@ -1,0 +1,39 @@
+.Button{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background-color : #E33E57;
+    border : 0px;
+    outline : none;
+    margin: 0px 20px;
+
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    color : #ffffff;
+    font-size: 1.2rem;
+}
+
+
+
+.Button:disabled{
+    background-color : rgba(227, 62,87, 0.6);
+    color : rgba(255,255,255,0.6);
+}
+
+@media screen and (min-width: 480px){
+
+
+    
+}
+
+@media screen and (min-width: 768px){
+
+    .Button{
+        width: 70px;
+        height: 70px;
+        font-size: 1.5rem;
+    }
+    
+    
+}

@@ -1,0 +1,72 @@
+.NavigationBar{
+    height: 76px;
+    background-color : #121212;
+    width: 100%;
+}
+
+.Container{
+    width: 90%;
+    margin: auto;
+    height: 100%;
+    display : flex;
+    align-items : center;
+}
+
+.SortButton{
+    margin: 0px 10px;
+    color : #ffffff;
+}
+
+.UpdateSortButton{
+    margin: 0px 10px;
+    color : #E33E57;    
+
+}
+
+
+.SortButton:hover, .SortButton:focus{
+    color : #E33E57;
+    cursor : pointer;
+}
+
+.NavigationLinkContainer{
+    display : none;
+    width: 280px;
+    justify-content : space-between;
+}
+
+.BurgerMenu{
+    background-color: transparent;
+    border : none;
+    outline : none;
+    color : white;
+    font-size: 1.3rem;
+    margin-right : 10px;
+
+}
+
+
+@media screen and (min-width: 768px){
+
+    .NavigationLinkContainer{
+        display : flex;
+    }
+
+    .Container{
+        width: 90%;
+        justify-content : space-between;
+    }
+
+    .BurgerMenu{
+        display : none;
+    }
+
+    
+}
+
+@media screen and (min-width: 1024px){
+
+
+    
+    
+}

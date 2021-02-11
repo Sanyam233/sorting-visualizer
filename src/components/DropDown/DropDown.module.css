@@ -1,0 +1,57 @@
+
+.Text{
+    color : #ffffff;
+}
+
+.DropDown{
+    position : relative;
+    margin-left: 10px;
+    display : inline-block;
+    height : 20px;
+    padding : 0px;
+}
+
+.SidedrawerDropdown{
+    position : relative;
+    display : inline-block;
+    height : 20px;
+    padding : 0px;
+}
+
+
+
+.DropDownMenu{
+    position: absolute;
+    background-color: #222121;
+    padding: 0px 10px;
+    box-sizing: border-box;
+    text-align: center;
+    z-index: 2;
+}
+
+
+
+.MenuItem{
+    list-style-type : none;
+    margin: 15px 0px;
+    color : #ffffff;
+}
+
+.MenuItem:hover{
+    color : #E33E57;
+    cursor : pointer;
+}
+
+.DropDownButton{
+    background-color: #121212;
+    color : grey;
+    outline : none;
+    height : 100%;
+    border: 0px;
+    box-sizing: border-box;
+    margin-left : 15px;
+}
+
+.Textholder{
+    display : inline-block;
+}
