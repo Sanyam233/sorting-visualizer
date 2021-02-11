@@ -11,9 +11,7 @@ function insertionSort(array){
 
         while(j >= 0 && array[j] > key){
             addToTrace(trace, array, [i, j]);
-            addToTrace(trace, array, [],[j+1, j]);
             array[j + 1] = array[j];
-            addToTrace(trace, array, []);
             j -=1;
         }
 
