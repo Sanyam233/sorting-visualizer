@@ -1,33 +1,36 @@
-import React, { Component } from 'react';
-import classes from './DropDown.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import './DropDown.css';
+import DropDownItems from './DropDownItems/DropDownItems';
+
+
 
 class DropDown extends Component {
 
-
     state  = {
-        selected_item : this.props.header,
-        toggle : false,
+        selectedItem : this.props.header,
+        dropdownDisplay : false,
     }
 
 
-    alogrithmSelectionHandler = (name, index) =>{
+    itemSelector = (name) =>{
 
         this.setState((prevState) => {
             return {
-            selected_item : name,
-            toggle : !prevState.toggle,
+            selectedItem : name,
+            dropdownDisplay : !prevState.dropdownDisplay,
             }
-        })
+        });
 
         this.props.selector(this.props.items[name]);
 
     }
 
-    dropDownMenuHandler = () => {
+    _dropdownHandler = () => {
         this.setState((prevState) => {
             return {
-                toggle : !prevState.toggle,
+                dropdownDisplay : !prevState.dropdownDisplay,
             }
         })
 
@@ -35,28 +38,26 @@ class DropDown extends Component {
 
     render() {
 
-        const MenuList = Object.keys(this.props.items).map((item,i) => <li 
-        className = {classes.MenuItem} 
-        key = {i}
-        onClick={() => this.alogrithmSelectionHandler(item, i)}
-        >
-            {item}
-        </li>)
+        const displayStyle = this.state.dropdownDisplay ? 'block' : 'none';
+        const chevronType = this.state.dropdownDisplay ? 'chevron-up' : 'chevron-down';
 
         return (
-                <div className = {classes.DropDownContainer}>
-                    <div className = {this.props.sidedrawer_render ? classes.SidedrawerDropdown :classes.DropDown}
-                    style = {{minWidth : this.props.width}}>
-                        <div className = {classes.Textholder}>
-                            <span className = {classes.Text}>{this.state.selected_item}</span> 
-                        </div>     
-                        <button className = {classes.DropDownButton}
-                        onClick = {this.dropDownMenuHandler}><FontAwesomeIcon icon = {this.state.toggle ? "chevron-up" :"chevron-down"} /></button>  
-                        <ul className = {classes.DropDownMenu} style = {{display : this.state.toggle ? 'block' : 'none'}}>
-                        {MenuList}
-                        </ul>  
-                    </div>      
-                </div>                
+            <div className = 'drop-down' style = {{width : this.props.widthProp}}>
+                <ul className = 'drop-down__default'>
+                    <div className = 'drop-down__default__container'>
+                        <li className = 'drop-down__selected'>{this.state.selectedItem}</li>
+                        <button onClick={this._dropdownHandler}>
+                            <FontAwesomeIcon icon = {chevronType}/>
+                        </button>
+                    </div>
+                </ul>
+                <ul className = 'drop-down__menu' style = {{display : displayStyle}}>
+                    <DropDownItems 
+                    onItemSelection = {this.itemSelector} 
+                    items = {this.props.items}
+                    />
+                </ul>                
+            </div>      
         )
     }
 

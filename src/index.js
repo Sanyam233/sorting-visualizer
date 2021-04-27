@@ -4,9 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faChevronUp, faChevronDown, faPlay, faRedo, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faChevronUp, faChevronDown, faPlay, faRedo, faBars, faPause, faTimes } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faChevronUp, faChevronDown, faPlay,faRedo, faBars);
+library.add(faChevronUp, faChevronDown, faPlay,faRedo, faBars, faPause, faTimes);
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,6 +1,8 @@
-import {newTrace, addToTrace} from './helpers'
+import {newTrace, addToTrace, lastSorted} from './helpers'
 
-function mergeSort(array){
+export const mergeSort = (arr) => {
+
+    const array = [...arr];
 
     let trace = newTrace(array);
     
@@ -26,18 +28,20 @@ function mergeSort(array){
     
         while((i < l1) && (j < l2)){
 
-            addToTrace(trace, array, [l + i, m + 1 + j]);
+            addToTrace(trace, array,lastSorted(trace),[l + i, m + 1 + j]);
 
             if(array1[i] <= array2[j]){
-                addToTrace(trace, array, [], [k, l + i]);
+                addToTrace(trace, array,lastSorted(trace), [], [k, l + i]);
+                addToTrace(trace, array,lastSorted(trace), [], [k, l + i]);
                 array[k] = array1[i];
-                addToTrace(trace, array);
+                addToTrace(trace, array, lastSorted(trace));
 
                 i+=1;
             }else{
-                addToTrace(trace, array, [], [k, m + 1 + j]);
+                addToTrace(trace, array,lastSorted(trace), [], [k, m + 1 + j]);
+                addToTrace(trace, array,lastSorted(trace), [], [k, m + 1 + j]);
                 array[k] = array2[j];
-                addToTrace(trace, array);
+                addToTrace(trace, array,lastSorted(trace));
                 j+=1;
             }
     
@@ -46,17 +50,19 @@ function mergeSort(array){
         }
     
         while(i < l1){
-            addToTrace(trace, array, [], [k, l + i]);
+            addToTrace(trace, array,lastSorted(trace), [], [k, l + i]);
+            addToTrace(trace, array,lastSorted(trace), [], [k, l + i]);
             array[k] = array1[i];
-            addToTrace(trace, array);
+            addToTrace(trace, array, lastSorted(trace));
             i+=1;
             k+=1;
         }
     
         while(j < l2){
-            addToTrace(trace, array, [], [k, m + 1 + j]);
+            addToTrace(trace, array,lastSorted(trace), [], [k, m + 1 + j]);
+            addToTrace(trace, array,lastSorted(trace), [], [k, m + 1 + j]);
             array[k] = array2[j];
-            addToTrace(trace, array);
+            addToTrace(trace, array,lastSorted(trace));
             j+=1;
             k+=1;
         }    

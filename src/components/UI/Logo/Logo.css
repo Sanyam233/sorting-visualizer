@@ -1,5 +1,5 @@
-.Title{
-    color : #ffffff;
+.logo{
+    color : var(--seconday-color);
     font-size: 1.2rem;
     text-align: center;
 }

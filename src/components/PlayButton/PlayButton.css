@@ -1,0 +1,30 @@
+.play-button{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background-color : var(--red);
+    border : 0px;
+    outline : none;
+    margin: 0px 20px;
+    display : grid;
+    place-items: center;
+    color : var(--seconday-color);
+    font-size: clamp(var(--fs-s), 4vw, var(--fs-xxl));
+}
+
+
+
+.play-button:disabled{
+    background-color : var(--disabled-red);
+    color : var(--disabled-white);
+}
+
+
+@media screen and (min-width: 768px){
+
+    .play-button{
+        width: 70px;
+        height: 70px;
+    }
+    
+}

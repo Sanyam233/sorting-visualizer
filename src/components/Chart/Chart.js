@@ -1,20 +1,22 @@
-import React from 'react'
-import Bar from './Bar/Bar'
-import classes from './Chart.module.css'
+import Bar from './Bar/Bar';
+import './Chart.css';
 
 const Chart = (props) => {
 
-    const bars = props.arr.map((num,i) => {
+    const Bars = props.array.map((num,idx) => {
     
-        return (<Bar 
+        return (<Bar key = {idx}
         height = {num} 
-        stateA = {props.groupA.includes(i)}
-        stateB = {props.groupB.includes(i)} 
-        size = {props.size}/>)});
+        stateA = {props.compareArr.includes(idx)}
+        stateB = {props.swapArr.includes(idx)} 
+        size = {props.size}/>);
+
+    });
                 
-    return( <div className = {classes.Chart}>
-        {bars}
-    </div>)
+    return(
+    <div className = 'chart' >
+        {Bars}
+    </div>);
 }
 
 export default Chart;

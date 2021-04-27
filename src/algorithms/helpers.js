@@ -1,22 +1,49 @@
-function newTrace(arr){
+// function newTrace(arr){
+//     return [{
+//         array : [...arr],
+//         groupA : [],
+//         groupB : [],
+//     }]
+// }
+// function addToTrace(trace, arr, grpA = [], grpB = []){
+//     trace.push({
+//         array : [...arr],
+//         groupA : [...grpA],
+//         groupB : [...grpB],
+//     })
+// }
+
+// function swap(array, i, j){
+//     let temp = array[i];
+//     array[i] = array[j];
+//     array[j] = temp;
+// }
+
+const newTrace = (arr) => {
     return [{
         array : [...arr],
-        groupA : [],
-        groupB : [],
-    }]
+        compare : [],
+        swap : [],
+        sortedIndices : []
+    }];
 }
-function addToTrace(trace, arr, grpA = [], grpB = []){
+const addToTrace = (trace, arr, sort, cmp = [], swp = []) => {
     trace.push({
         array : [...arr],
-        groupA : [...grpA],
-        groupB : [...grpB],
-    })
+        compare : [...cmp],
+        swap : [...swp],
+        sortedIndices : [...sort]
+    });
 }
 
-function swap(array, i, j){
+const swap = (array, i, j) => {
     let temp = array[i];
     array[i] = array[j];
     array[j] = temp;
 }
 
-export {newTrace, addToTrace, swap}
+const lastSorted = (trace) => {
+    return trace[trace.length - 1].sortedIndices;
+}
+
+export {newTrace, addToTrace, swap,lastSorted}

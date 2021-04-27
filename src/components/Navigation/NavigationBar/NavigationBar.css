@@ -1,10 +1,10 @@
-.NavigationBar{
+.navigation-bar{
     height: 76px;
-    background-color : #121212;
+    background-color : var(--primary-color);
     width: 100%;
 }
 
-.Container{
+.navigation-bar__container{
     width: 90%;
     margin: auto;
     height: 100%;
@@ -12,61 +12,41 @@
     align-items : center;
 }
 
-.SortButton{
-    margin: 0px 10px;
-    color : #ffffff;
-}
 
-.UpdateSortButton{
-    margin: 0px 10px;
-    color : #E33E57;    
-
-}
-
-
-.SortButton:hover, .SortButton:focus{
-    color : #E33E57;
-    cursor : pointer;
-}
-
-.NavigationLinkContainer{
+.navigation-bar__links{
     display : none;
     width: 280px;
     justify-content : space-between;
+    background-color : var(--primary-color);
 }
 
-.BurgerMenu{
+.navigation-bar__menu{
     background-color: transparent;
     border : none;
     outline : none;
-    color : white;
+    color : var(--seconday-color);
     font-size: 1.3rem;
     margin-right : 10px;
+    position: relative;
+    z-index: 10;
 
 }
 
 
 @media screen and (min-width: 768px){
 
-    .NavigationLinkContainer{
+    .navigation-bar__links{
         display : flex;
     }
 
-    .Container{
-        width: 90%;
+    .navigation-bar__container{
         justify-content : space-between;
     }
 
-    .BurgerMenu{
+    .navigation-bar__menu{
         display : none;
     }
 
     
 }
 
-@media screen and (min-width: 1024px){
-
-
-    
-    
-}

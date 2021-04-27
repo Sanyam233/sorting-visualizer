@@ -1,30 +1,28 @@
-import React from 'react'
-import classes from './Bar.module.css'
+import './Bar.css';
 
 const Bar = (props) => { 
 
-    let c = [classes.Bar];
+    let classes = 'bar ';
 
-    if(props.stateA){
-        c.push(classes.GroupA);
-    }else if(props.stateB){
-        c.push(classes.GroupB)
+    if (props.stateA) {
+        classes += 'groupA';
+    }else if (props.stateB) {
+        classes += 'groupB';
     }
 
-    if(props.size === 10){
-        c.push(classes.xSmall);
-    }else if (props.size === 20){
-        c.push(classes.Small);
-    }else if (props.size === 50){
-        c.push(classes.Medium);
-    }else if (props.size === 75){
-        c.push(classes.Large);
-    }else if (props.size === 100){
-        c.push(classes.xLarge);
-    }
+    const barWidth = (100 / props.size) * 2;
 
-    return (<div className = {c.join(' ')} style = {{height : props.height}}>
-    </div>)
+    const margin = barWidth / 2;
+
+    return (
+    <div 
+        className = {classes} 
+        style = {{
+            height : props.height, 
+            width : `${barWidth}%`, 
+            margin : `0px ${margin}px`
+            }}>
+    </div>);
 
 }
 

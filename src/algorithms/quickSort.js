@@ -1,6 +1,8 @@
-import {newTrace, addToTrace, swap} from './helpers'
+import {newTrace, addToTrace, swap, lastSorted} from './helpers'
 
-function quickSort(array){
+export const quickSort = (arr) => {
+
+    const array = [...arr];
 
     let trace = newTrace(array);
 
@@ -10,20 +12,22 @@ function quickSort(array){
         let counter_index = low;
     
         for(let i = low; i < high; i++){
-            addToTrace(trace, array, [high, i]);
+            addToTrace(trace, array,lastSorted(trace), [high, i]);
             if(array[i] <= pivot){
-                addToTrace(trace, array,[], [counter_index, i]);
+                addToTrace(trace, array,lastSorted(trace), [], [counter_index, i]);
+                addToTrace(trace, array,lastSorted(trace), [], [counter_index, i]);
                 swap(array, counter_index, i);
-                addToTrace(trace, array);
+                addToTrace(trace, array, lastSorted(trace));
                 counter_index+=1;
             }
         }
 
-        addToTrace(trace, array,[], [counter_index, high]);
+        addToTrace(trace, array,lastSorted(trace),[], [counter_index, high]);
+        addToTrace(trace, array,lastSorted(trace),[], [counter_index, high]);
 
         swap(array, counter_index, high);
 
-        addToTrace(trace, array);
+        addToTrace(trace, array,lastSorted(trace));
 
         return counter_index;
     
@@ -40,8 +44,6 @@ function quickSort(array){
     
         }
     } 
-
-    
 
     recursiveSort(array, 0, array.length - 1);
 

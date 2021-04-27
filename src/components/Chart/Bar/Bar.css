@@ -1,0 +1,12 @@
+.bar{
+    background-color : var(--seconday-color);
+}
+
+.groupA{
+    background-color : var(--red);
+}
+
+.groupB{
+    background-color : var(--yellow);
+}
+

@@ -1,6 +1,8 @@
-import {newTrace, addToTrace} from './helpers'
+import {newTrace, addToTrace, lastSorted} from './helpers'
 
-function insertionSort(array){
+export const insertionSort = (arr) => {
+
+    const array = [...arr];
 
     let trace =  newTrace(array);
 
@@ -10,14 +12,16 @@ function insertionSort(array){
         let j = i - 1;
 
         while(j >= 0 && array[j] > key){
-            addToTrace(trace, array, [i, j]);
+            addToTrace(trace, array,lastSorted(trace), [i, j]);
             array[j + 1] = array[j];
             j -=1;
         }
 
-        addToTrace(trace, array, [], [i, j+1]);
+        addToTrace(trace, array, lastSorted(trace), [], [i, j+1]);
+        addToTrace(trace, array, lastSorted(trace), [], [i, j+1]);
+
         array[j + 1] = key;
-        addToTrace(trace, array, []);
+        addToTrace(trace, array,lastSorted(trace));
 
     }
 

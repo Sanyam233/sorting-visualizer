@@ -1,0 +1,28 @@
+.color-tray{
+    margin : 15px 0px;
+}
+
+.color-tray__element{
+    margin-top : 10px;
+}
+
+.color-tray__element__title{
+    color : var(--seconday-color);
+    display: inline-block;
+    margin-right : 25px;
+}
+
+.color-tray__element__color{
+    width : 30px;
+    height: 15px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+@media only screen and (min-width: 768px){
+
+    .color-tray{
+        display: flex;
+    }
+
+}

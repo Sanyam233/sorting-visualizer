@@ -1,0 +1,33 @@
+.control-panel{
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    margin-top : 20px;
+}
+
+.control-panel__repeat__button{
+    background-color : var(--black);
+    border: 0px;
+    outline : 0px;
+    color : var(--seconday-color);
+    font-size : 1.1rem;
+    margin-right : 10px;
+}
+
+.control-panel__repeat__button:hover{
+    color : var(--red);
+    cursor : pointer;
+}
+
+.control-panel__repeat__button:disabled{
+    color : var(--disabled-white);
+}
+
+
+@media screen and (min-width: 768px){
+
+    .control-panel__repeat__button{
+        font-size : 1.3rem;
+    }        
+
+}
